@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'galeria.apps.GaleriaConfig'
+    
+    'apps.galeria.apps.GaleriaConfig',
+    'apps.usuarios.apps.UsuariosConfig'
 ]
 
 MIDDLEWARE = [
@@ -127,7 +129,20 @@ STATICFILES_DIRS = [#aqui é onde se coloca os arquivos estáticos da aplicaçã
 
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
+# Medias que são os arquivos que o usuário envia para o site
+MEDIA_ROOT = os.path.join(BASE_DIR,'media') #pasta onde os arquivos de media serão salvos
+MEDIA_URL = '/media/' #url que será usada para acessar os arquivos de media
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# messeges
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+    messages.SUCCESS: 'success',
+    messages.INFO: 'info',
+    messages.WARNING: 'warning',
+}
